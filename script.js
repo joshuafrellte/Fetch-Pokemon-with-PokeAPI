@@ -9,6 +9,10 @@ const pokemonBaseExperience = document.getElementById('pokemonBaseExperience')
 const pokemonHeight = document.getElementById('pokemonHeight')
 const pokemonWeight = document.getElementById('pokemonWeight')
 const fetchBtn = document.getElementById('fetchBtn')
+const fetchPanel = document.getElementById('fetchPanel')
+const bigScreenQuery = window.matchMedia('(min-width: 750px)')
+
+bigScreenQuery.addEventListener('change', handleScreenSizeChange)
 
 pokemonNameInput.addEventListener('keydown', function(event) {
     if (event.key === "Enter") {
@@ -20,12 +24,12 @@ async function fetchPokemon() {
     try {
         clearInfo();
 
-        const pokemonName = pokemonNameInput.value.toLowerCase();
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+        const pokemonName = pokemonNameInput.value.toLowerCase()
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
         // const response = await fetch(`https://pokeapi.co/api/v2/pokemon/pikachu`);
         
         if (!response.ok) {
-            throw new Error("Could not fetch Pokemon");
+            throw new Error("Could not fetch Pokemon")
         }
 
         if (pokemonName.trim().length === 0) {
@@ -176,6 +180,14 @@ function capitalizeFirstLetter(string) {
 
 function deciToBase(value) {
     return (parseFloat(value) / 10).toFixed(1)
+}
+
+function handleScreenSizeChange(event) {
+    if (event.matches) {
+        fetchPanel.style.marginTop = "0px";
+    } else {
+        fetchPanel.style.marginTop = "250px";
+    }
 }
 
  
