@@ -3,12 +3,16 @@
     transition: 0.1s ease;
 }
 
+body {
+    background-color: rgb(255, 60, 92);
+}
+
 p, ul {
     margin: 0;
 }
 
-body {
-    background-color: rgb(255, 60, 92);
+li {
+    list-style-type: disclosure-closed;
 }
 
 #fetchPanel {
@@ -30,7 +34,8 @@ body {
 
 #fetchBtn {
     width: 133px;
-    background-color: rgb(119, 182, 255)
+    background-color: rgb(96, 169, 253);
+    cursor: pointer;
 }
 
 #fetchBtn:hover {
@@ -87,6 +92,12 @@ body {
     #leftPanel, #rightPanel {
         font-size: 28px;
         padding: 28px;
+    }
+    #leftPanel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
     }
     #pokemonInfo {
         max-width: 750px;

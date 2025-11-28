@@ -9,8 +9,6 @@ const pokemonHeight = document.getElementById('pokemonHeight')
 const pokemonWeight = document.getElementById('pokemonWeight')
 const fetchBtn = document.getElementById('fetchBtn')
 
-fetchPokemon()
-
 pokemonNameInput.addEventListener('keydown', function(event) {
     if (event.key === "Enter") {
         fetchPokemon()
@@ -85,7 +83,8 @@ async function fetchSprite(data) {
 async function fetchAbilities(data) {
     data.abilities.forEach(abilityNumber => {
         const node = document.createElement('li')
-        const textNode = document.createTextNode(abilityNumber.ability.name)
+        const formattedText = capitalizeFirstLetter(abilityNumber.ability.name)
+        const textNode = document.createTextNode(formattedText)
         node.appendChild(textNode)
         abilityList.appendChild(node)
         // console.log(abilityNumber.ability.name)
@@ -104,7 +103,7 @@ async function fetchId(data) {
 async function fetchStats(data) {
     data.stats.forEach(statNumber => {
         const node = document.createElement('li')
-        const statText = statNumber.stat.name+": "+statNumber.base_stat
+        const statText = formatStats(statNumber.stat.name)+": "+statNumber.base_stat
         const statNode = document.createTextNode(statText)
         node.appendChild(statNode)
         statList.appendChild(node)
@@ -116,7 +115,8 @@ async function fetchStats(data) {
 async function fetchTypes(data) {
     data.types.forEach(typeNumber => {
         const node = document.createElement('li')
-        const typeNode = document.createTextNode(typeNumber.type.name)
+        const formattedText = capitalizeFirstLetter(typeNumber.type.name)
+        const typeNode = document.createTextNode(formattedText)
         node.appendChild(typeNode)
         typeList.appendChild(node);
         // console.log(typeNumber.type.name)
@@ -135,7 +135,8 @@ async function fetchBaseExperience(data) {
 // height
 async function fetchHeight(data) {
     const node = document.createElement('span')
-    const heightNode = document.createTextNode(data.height)
+    const formattedHeight = deciToBase(data.height)+"m"
+    const heightNode = document.createTextNode(formattedHeight)
     node.appendChild(heightNode)
     pokemonHeight.appendChild(node);
     // console.log(data.height);
@@ -144,12 +145,30 @@ async function fetchHeight(data) {
 // weight
 async function fetchWeight(data) {
     const node = document.createElement('span')
-    const weightNode = document.createTextNode(data.weight)
+    const formattedWeight = deciToBase(data.weight)+"kg"
+    const weightNode = document.createTextNode(formattedWeight)
     node.appendChild(weightNode)
     pokemonWeight.appendChild(node);
     // console.log(data.weight);
 }
 
+function formatStats(string) {
+    if (string.length === 2) {
+        string = string.toUpperCase();
+    }
+    const words = string.split('-')
+    return words.map(word => {
+        return capitalizeFirstLetter(word)
+    }).join(' ');
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function deciToBase(value) {
+    return (parseFloat(value) / 10).toFixed(1)
+}
 
  
 
