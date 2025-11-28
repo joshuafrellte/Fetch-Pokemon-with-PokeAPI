@@ -6,29 +6,77 @@
     margin: 0;
 } */
 
+p, ul {
+    margin: 0;
+}
 
+body {
+    background-color: rgba(255, 0, 0, 0.61);
+}
 
 #fetchPanel {
     text-align: center;
-    margin-top: 33px;
+    margin-top: 20px;
 }
 
 #pokemonName, #fetchBtn {
-    font-size: 24px;
-    padding: 5px 20px;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+#pokemonName {
+    text-align: center;
+    width: 175px;
+}
+
+.rightPanelHeadings {
+    margin-top: 15px;
 }
 
 #pokemonInfo {
-    width: 500px;
-    margin: 33px auto;
+    display: flex;
+    justify-content: center;
+    background: white;
+    margin: 16px auto;
     padding: 33px;
+    max-width: 350px;
     border: 4px solid black;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+#pokemonSprite {
+    object-fit: cover;
+    transform: scale(1.6);
 }
 
 #leftPanel, #rightPanel {
-    padding-left: 40px;
+    font-size: 20px;
+}
+
+@media screen and (min-width: 675px) {
+    #fetchPanel {
+        margin-top: 33px;
+    }
+    #pokemonName, #fetchBtn {
+        font-size: 28px;
+        padding: 8px 24px;
+    }
+    #pokemonName {
+        width: 225px;
+    }
+    #leftPanel, #rightPanel {
+        font-size: 28px;
+        padding: 20px;
+    }
+    #pokemonInfo {
+        max-width: 600px;
+        margin: 33px auto;
+        padding: 33px;
+        border: 4px solid black;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
     
 }
 

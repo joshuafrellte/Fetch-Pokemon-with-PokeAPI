@@ -22,17 +22,17 @@ async function fetchPokemon() {
         clearInfo();
 
         const pokemonName = pokemonNameInput.value.toLowerCase();
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-        // const response = await fetch(`https://pokeapi.co/api/v2/pokemon/pikachu`);
+        // const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/pikachu`);
         
-        if (!response.ok) {
-            throw new Error("Could not fetch Pokemon");
-        }
+        // if (!response.ok) {
+        //     throw new Error("Could not fetch Pokemon");
+        // }
 
-        if (pokemonName.trim().length === 0) {
-            alert("No Pokemon entered!")
-            return
-        }
+        // if (pokemonName.trim().length === 0) {
+        //     alert("No Pokemon entered!")
+        //     return
+        // }
 
         const data = await response.json();
         console.log(data)
