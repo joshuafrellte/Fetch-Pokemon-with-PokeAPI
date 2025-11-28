@@ -78,6 +78,7 @@ li {
 }
 
 #nameDisplay {
+    text-align: center;
     font-weight: bold;
 }
 
