@@ -1,5 +1,6 @@
 * {
     font-family: 'VT323';
+    transition: 0.1s ease;
 }
 
 p, ul {
@@ -17,18 +18,27 @@ body {
 
 #pokemonName, #fetchBtn {
     font-size: 20px;
-    padding: 5px 10px;
+    padding: 5px 7px;
     border: 4px outset rgb(122, 122, 122);
     border-radius: 10px;
 }
 
 #pokemonName {
     text-align: center;
-    width: 175px;
+    width: 200px;
 }
 
 #fetchBtn {
-    background-color: rgb(111, 178, 255)
+    width: 133px;
+    background-color: rgb(119, 182, 255)
+}
+
+#fetchBtn:hover {
+    background-color: rgb(44, 143, 255)
+}
+
+#fetchBtn:active {
+    border-style: inset;
 }
 
 .rightPanelHeadings {
@@ -49,11 +59,6 @@ body {
     overflow: hidden;
 }
 
-#pokemonSprite {
-    object-fit: cover;
-    transform: scale(1.6);
-}
-
 #leftPanel, #rightPanel {
     font-size: 20px;
 }
@@ -64,16 +69,19 @@ body {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 700px;
+        width: 750px;
     } 
     #fetchPanel {
         margin-top: 33px;
     }
     #pokemonName, #fetchBtn {
         font-size: 28px;
-        padding: 8px 24px;
+        padding: 8px 20px;
     }
     #pokemonName {
+        width: 300px;
+    }
+    #fetchBtn {
         width: 225px;
     }
     #leftPanel, #rightPanel {
@@ -81,7 +89,7 @@ body {
         padding: 28px;
     }
     #pokemonInfo {
-        max-width: 700px;
+        max-width: 750px;
         margin: 33px auto;
         padding: 33px;
         border: 8px inset rgb(117, 117, 117);
