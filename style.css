@@ -11,7 +11,7 @@ p, ul {
 }
 
 body {
-    background-color: rgba(255, 0, 0, 0.61);
+    background-color: rgb(255, 60, 92);
 }
 
 #fetchPanel {
@@ -22,11 +22,17 @@ body {
 #pokemonName, #fetchBtn {
     font-size: 20px;
     padding: 5px 10px;
+    border: 3px solid black;
+    border-radius: 10px;
 }
 
 #pokemonName {
     text-align: center;
     width: 175px;
+}
+
+#fetchBtn {
+    background-color: rgb(111, 178, 255)
 }
 
 .rightPanelHeadings {
@@ -36,12 +42,14 @@ body {
 #pokemonInfo {
     display: flex;
     justify-content: center;
-    background: white;
+    background-image: url(imgs/background.jpg);
+    background-color: rgba(255,255,255,0.6);
+    background-blend-mode: lighten;
     margin: 16px auto;
     padding: 33px;
     max-width: 350px;
     border: 4px solid black;
-    border-radius: 25px;
+    border-radius: 33px;
     overflow: hidden;
 }
 
@@ -73,7 +81,7 @@ body {
         max-width: 600px;
         margin: 33px auto;
         padding: 33px;
-        border: 4px solid black;
+        border: 8px inset black;
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
