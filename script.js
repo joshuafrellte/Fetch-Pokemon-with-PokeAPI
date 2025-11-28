@@ -1,29 +1,29 @@
-
-
-// fetch("https://pokeapi.co/api/v2/pokemon/typhlosion")
-//     .then(response => {
-//         if (!response.ok) {
-//             throw new Error("Could not fetch Pokemon")
-//         }
-//         return response.json();
-//     })
-//     .then(data => console.log(data.id))
-//     .catch(error => console.error(error))
-
-const pokemonSprite = document.getElementById('pokemonSprite');
-const pokemonStats = document.getElementById('pokemonStats');
+const pokemonNameInput = document.getElementById('pokemonName')
+const pokemonSprite = document.getElementById('pokemonSprite')
+const pokemonInfo = document.getElementById('pokemonInfo')
 const abilityList = document.getElementById('abilityList')
 const statList = document.getElementById('statList')
+const typeList = document.getElementById('typeList')
 const pokemonBaseExperience = document.getElementById('pokemonBaseExperience')
 const pokemonHeight = document.getElementById('pokemonHeight')
 const pokemonWeight = document.getElementById('pokemonWeight')
+const fetchBtn = document.getElementById('fetchBtn')
+
+fetchPokemon()
+
+pokemonNameInput.addEventListener('keydown', function(event) {
+    if (event.key === "Enter") {
+        fetchPokemon()
+    }
+})
 
 async function fetchPokemon() {
     try {
         clearInfo();
 
-        const pokemonName = document.getElementById('pokemonName').value.toLowerCase();
+        const pokemonName = pokemonNameInput.value.toLowerCase();
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+        // const response = await fetch(`https://pokeapi.co/api/v2/pokemon/pikachu`);
         
         if (!response.ok) {
             throw new Error("Could not fetch Pokemon");
@@ -37,7 +37,7 @@ async function fetchPokemon() {
         const data = await response.json();
         console.log(data)
 
-        pokemonStats.style.display = "block";
+        pokemonInfo.style.display = "grid";
         fetchData(data)
     }
     catch(error) {
@@ -48,9 +48,12 @@ async function fetchPokemon() {
 
 // clear
 async function clearInfo() {
-    abilityList.replaceChildren();
-    statList.replaceChildren();
-    pokemonBaseExperience.replaceChildren();
+    pokemonId.replaceChildren()
+    pokemonId.textContent = "No."
+    abilityList.replaceChildren()
+    statList.replaceChildren()
+    typeList.replaceChildren()
+    pokemonBaseExperience.replaceChildren()
     pokemonBaseExperience.textContent = "Base Experience: "
     pokemonHeight.replaceChildren();
     pokemonHeight.textContent = "Height: "
@@ -60,6 +63,7 @@ async function clearInfo() {
 
 // data
 async function fetchData(data) {
+    fetchId(data)
     fetchSprite(data)
     fetchAbilities(data)
     fetchStats(data)
@@ -83,6 +87,14 @@ async function fetchAbilities(data) {
         abilityList.appendChild(node)
         // console.log(abilityNumber.ability.name)
     });
+}
+
+async function fetchId(data) {
+    const node = document.createElement('span')
+    const idNode = document.createTextNode(data.id)
+    node.appendChild(idNode)
+    pokemonId.appendChild(node);
+    console.log(data.id);
 }
 
 // stats
