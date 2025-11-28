@@ -2,10 +2,6 @@
     font-family: 'VT323';
 }
 
-/* ul, p {
-    margin: 0;
-} */
-
 p, ul {
     margin: 0;
 }
@@ -22,7 +18,7 @@ body {
 #pokemonName, #fetchBtn {
     font-size: 20px;
     padding: 5px 10px;
-    border: 3px solid black;
+    border: 4px outset rgb(122, 122, 122);
     border-radius: 10px;
 }
 
@@ -62,7 +58,14 @@ body {
     font-size: 20px;
 }
 
-@media screen and (min-width: 675px) {
+@media screen and (min-width: 750px) {
+    #appArea {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 700px;
+    } 
     #fetchPanel {
         margin-top: 33px;
     }
@@ -75,13 +78,13 @@ body {
     }
     #leftPanel, #rightPanel {
         font-size: 28px;
-        padding: 20px;
+        padding: 28px;
     }
     #pokemonInfo {
-        max-width: 600px;
+        max-width: 700px;
         margin: 33px auto;
         padding: 33px;
-        border: 8px inset black;
+        border: 8px inset rgb(117, 117, 117);
         display: grid;
         grid-template-columns: 1fr 1fr;
     }

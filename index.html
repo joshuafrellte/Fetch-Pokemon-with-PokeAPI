@@ -10,34 +10,36 @@
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="fetchPanel">
-        <input type="text" id="pokemonName" placeholder="Enter Pokemon Name">
-        <button onclick="fetchPokemon()" id="fetchBtn">Fetch Pokemon</button><br>
-    </div>
-
-    <div id="pokemonInfo" style="display: none;">
-            
-        <div id="leftPanel">
-            <img src="" alt="Pokemon Sprite" id="pokemonSprite" style="width: 200px">
-            
-            <p id="pokemonId">No.</p>
-
-            <p id="pokemonBaseExperience">Base Experience: </p>
-            
-            <p id="pokemonHeight">Height: </p>
-
-            <p id="pokemonWeight">Weight: </p>
+    <div id="appArea">
+        <div id="fetchPanel">
+            <input type="text" id="pokemonName" placeholder="Enter Pokemon Name">
+            <button onclick="fetchPokemon()" id="fetchBtn">Fetch Pokemon</button><br>
         </div>
 
-        <div id="rightPanel">
-            <p class="rightPanelHeadings" id="pokemonTypes">Types</p>
-            <ul id="typeList"></ul>
+        <div id="pokemonInfo" style="display: none;">
+                
+            <div id="leftPanel">
+                <img src="" alt="Pokemon Sprite" id="pokemonSprite" style="width: 200px">
+                
+                <p id="pokemonId">No.</p>
 
-            <p class="rightPanelHeadings" id="pokemonAbilities">Abilities</p>
-            <ul id="abilityList"></ul>
-            
-            <p class="rightPanelHeadings" id="pokemonStats">Base Stats</p>
-            <ul id="statList"></ul>
+                <p id="pokemonBaseExperience">Base Experience: </p>
+                
+                <p id="pokemonHeight">Height: </p>
+
+                <p id="pokemonWeight">Weight: </p>
+            </div>
+
+            <div id="rightPanel">
+                <p class="rightPanelHeadings" id="pokemonTypes">Types</p>
+                <ul id="typeList"></ul>
+
+                <p class="rightPanelHeadings" id="pokemonAbilities">Abilities</p>
+                <ul id="abilityList"></ul>
+                
+                <p class="rightPanelHeadings" id="pokemonStats">Base Stats</p>
+                <ul id="statList"></ul>
+            </div>
         </div>
     </div>
 
