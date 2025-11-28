@@ -95,7 +95,7 @@ async function fetchName(data) {
 async function fetchAbilities(data) {
     data.abilities.forEach(abilityNumber => {
         const node = document.createElement('li')
-        const formattedText = capitalizeFirstLetter(abilityNumber.ability.name)
+        const formattedText = capitalizeFirstLetter(formatJson(abilityNumber.ability.name))
         const textNode = document.createTextNode(formattedText)
         node.appendChild(textNode)
         abilityList.appendChild(node)
@@ -115,7 +115,7 @@ async function fetchId(data) {
 async function fetchStats(data) {
     data.stats.forEach(statNumber => {
         const node = document.createElement('li')
-        const statText = formatStats(statNumber.stat.name)+": "+statNumber.base_stat
+        const statText = formatJson(statNumber.stat.name)+": "+statNumber.base_stat
         const statNode = document.createTextNode(statText)
         node.appendChild(statNode)
         statList.appendChild(node)
@@ -164,7 +164,7 @@ async function fetchWeight(data) {
     // console.log(data.weight);
 }
 
-function formatStats(string) {
+function formatJson(string) {
     if (string.length === 2) {
         string = string.toUpperCase();
     }
