@@ -10,8 +10,6 @@ const pokemonHeight = document.getElementById('pokemonHeight')
 const pokemonWeight = document.getElementById('pokemonWeight')
 const fetchBtn = document.getElementById('fetchBtn')
 
-
-
 pokemonNameInput.addEventListener('keydown', function(event) {
     if (event.key === "Enter") {
         fetchPokemon()
@@ -85,8 +83,8 @@ async function fetchSprite(data) {
 
 // name 
 async function fetchName(data) {
+    console.log(`Showing Pokemon: ${data.name}`)
     nameDisplay.textContent = data.name.toUpperCase();
-    console.log(data.name)
 }
 
 // abilities
@@ -106,7 +104,7 @@ async function fetchId(data) {
     const idNode = document.createTextNode(data.id)
     node.appendChild(idNode)
     pokemonId.appendChild(node);
-    console.log(data.id);
+    // console.log(data.id);
 }
 
 // stats
