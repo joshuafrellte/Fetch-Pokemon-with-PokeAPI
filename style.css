@@ -7,8 +7,8 @@ body {
     background-color: rgb(255, 60, 92);
 }
 
-p, ul {
-    margin: 0;
+p, ul, li {
+    margin: 5px 0;
 }
 
 li {
@@ -55,6 +55,7 @@ li {
 }
 
 .rightPanelHeadings {
+    font-weight: bold;
     margin-top: 15px;
 }
 
@@ -74,6 +75,10 @@ li {
 
 #leftPanel, #rightPanel {
     font-size: 20px;
+}
+
+#nameDisplay {
+    font-weight: bold;
 }
 
 @media screen and (min-width: 750px) {
@@ -111,7 +116,10 @@ li {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
-    
+    #nameDisplay {
+        font-size: 48px;
+        margin: 0;
+    }
 }
 
 

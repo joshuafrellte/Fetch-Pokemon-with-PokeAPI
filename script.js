@@ -1,4 +1,5 @@
 const pokemonNameInput = document.getElementById('pokemonName')
+const nameDisplay = document.getElementById('nameDisplay')
 const pokemonSprite = document.getElementById('pokemonSprite')
 const pokemonInfo = document.getElementById('pokemonInfo')
 const abilityList = document.getElementById('abilityList')
@@ -8,6 +9,8 @@ const pokemonBaseExperience = document.getElementById('pokemonBaseExperience')
 const pokemonHeight = document.getElementById('pokemonHeight')
 const pokemonWeight = document.getElementById('pokemonWeight')
 const fetchBtn = document.getElementById('fetchBtn')
+
+
 
 pokemonNameInput.addEventListener('keydown', function(event) {
     if (event.key === "Enter") {
@@ -50,7 +53,7 @@ async function clearInfo() {
     pokemonInfo.style.display = "none"
     pokemonSprite.src = ''
     pokemonId.replaceChildren()
-    pokemonId.textContent = "No."
+    pokemonId.textContent = "ID#: "
     abilityList.replaceChildren()
     statList.replaceChildren()
     typeList.replaceChildren()
@@ -72,11 +75,18 @@ async function fetchData(data) {
     fetchBaseExperience(data)
     fetchHeight(data)
     fetchWeight(data)
+    fetchName(data)
 }
 
 // sprite
 async function fetchSprite(data) {
     pokemonSprite.src = data.sprites.front_default;
+}
+
+// name 
+async function fetchName(data) {
+    nameDisplay.textContent = data.name.toUpperCase();
+    console.log(data.name)
 }
 
 // abilities
